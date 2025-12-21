@@ -54,7 +54,7 @@
     </div>
   <div class="hero-visual" id="heroVisual">
     <i></i><i></i><i></i><i></i>
-    <img src="/img/Desain tanpa judul.png" alt="Belajar Informatika" />
+    <img src="../img/Desain tanpa judul.png" alt="Belajar Informatika" />
   </div>
   </div>
 </section>
@@ -213,7 +213,7 @@
   <div class="instructor-list">
 
     <div class="instructor-card slide-left">
-      <img src="/img/anugrah.png" class="instructor-photo">
+      <img src="../img/anugrah.png" class="instructor-photo">
       <div>
         <h3>Anugrah</h3>
         <p class="role">Algoritma & Pemrograman Dasar</p>
@@ -226,7 +226,7 @@
 
 
     <div class="instructor-card slide-right">
-      <img src="/img/nur-qamariah.jpeg" class="instructor-photo">
+      <img src="../img/nur-qamariah.jpeg" class="instructor-photo">
       <div>
         <h3>Nur Qamariah Yunus</h3>
         <p class="role">Web Development</p>
@@ -237,7 +237,7 @@
     </div>
 
     <div class="instructor-card slide-left">
-      <img src="/img/nadilla.jpeg" class="instructor-photo">
+      <img src="../img/nadilla.jpeg" class="instructor-photo">
       <div>
         <h3>Nadilla Getalia</h3>
         <p class="role">Database & Sistem</p>
@@ -369,7 +369,7 @@
     // 1. Kalau BELUM login → simpan niat beli, lalu ke login
     if (localStorage.getItem("isLoggedIn") !== "true") {
       localStorage.setItem("pendingModule", moduleId);
-      window.location.href = "/Auth/index.html";
+      window.location.href = "../Auth/index.html";
       return;
     }
 
@@ -396,7 +396,7 @@
 
       // JIKA SUDAH LOGIN → LANGSUNG KE LEARNING
       if (localStorage.getItem("isLoggedIn") === "true") {
-        window.location.href = "/Learning/learning.html";
+        window.location.href = "../Learning/learning.html";
       } 
       // JIKA BELUM LOGIN → KE LOGIN PAGE
       else {
@@ -411,7 +411,7 @@
     // JIKA BELUM LOGIN → KE HALAMAN PURCHASE
     if (localStorage.getItem("isLoggedIn") !== "true") {
       localStorage.setItem("pendingModule", moduleId);
-      window.location.href = "/Purchase/purchase.html";
+      window.location.href = "../Purchase/purchase.html";
       return;
     }
 
@@ -423,7 +423,7 @@
       localStorage.setItem("myModules", JSON.stringify(myModules));
     }
 
-    window.location.href = "/User/index.html";
+    window.location.href = "../User/index.html";
   }
 </script>
 <script>
@@ -458,7 +458,7 @@
       window.location.reload();
     } else {
       // LOGIN
-      window.location.href = "/Auth/index.html";
+      window.location.href = "../Auth/index.html";
     }
   });
 </script>

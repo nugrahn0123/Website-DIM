@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Dashboard Belajar | Digital Informatics Mastery</title>
-<link rel="stylesheet" href="/Dashboard/style.css">
-<link rel="stylesheet" href="/Learning/learning.css">
+<link rel="stylesheet" href="../Dashboard/style.css">
+<link rel="stylesheet" href="../Learning/learning.css">
 
 </head>
 <body>
@@ -21,7 +21,7 @@
   </div>
 
     <nav>
-      <a href="/User/index.html" id="dashboardBtn">Dashboard</a>
+      <a href="../User/index.html" id="dashboardBtn">Dashboard</a>
       <a href="#">Profil</a>
       <a href="#" id="logoutBtn">Logout</a>
     </nav>
@@ -83,7 +83,7 @@
 </footer>
 <script>
   if (localStorage.getItem("isLoggedIn") !== "true") {
-    window.location.href = "/Auth/index.html";
+    window.location.href = "../Auth/index.html";
   }
 </script>
 <script>
@@ -149,7 +149,7 @@
       sessionStorage.clear();
 
       // ===== REDIRECT =====
-      window.location.href = "/Dashboard/index.html";
+      window.location.href = "../Dashboard/index.html";
     });
   }
 </script>

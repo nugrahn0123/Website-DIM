@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>User Dashboard</title>
-  <link rel="stylesheet" href="/Dashboard/style.css">
+  <link rel="stylesheet" href="../Dashboard/style.css">
 </head>
 <body>
 
@@ -17,7 +17,7 @@
 <header style="display:flex;justify-content:space-between;align-items:center">
   <h2>Modul Saya</h2>
   <div>
-    <a href="/Dashboard/index.html" class="module-btn" style="margin-right:12px">
+    <a href="../Dashboard/index.html" class="module-btn" style="margin-right:12px">
       Beranda
     </a>
     <a href="#" id="logoutBtn" class="module-btn">
@@ -77,7 +77,7 @@
         <h3>${title}</h3>
 
         <div style="display:flex;gap:12px;margin-top:16px">
-          <a href="/Learning/learning.html" class="module-btn">
+          <a href="../Learning/learning.html" class="module-btn">
             Masuk Learning
           </a>
 
@@ -104,7 +104,7 @@
   // LOGOUT
   document.getElementById("logoutBtn").addEventListener("click", () => {
     localStorage.removeItem("isLoggedIn");
-    window.location.href = "/Dashboard/index.html";
+    window.location.href = "../Dashboard/index.html";
   });
 </script>
 
