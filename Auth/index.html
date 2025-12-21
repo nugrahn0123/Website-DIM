@@ -18,7 +18,7 @@
 
   <div class="login-header">
     <div class="logo-mark">DIM</div>
-    <h2>Masuk ke Learning</h2>
+    <h2>Masuk Terlebih Dahulu</h2>
     <p>Digital Informatics Mastery</p>
   </div>
 
@@ -31,18 +31,23 @@
 </div>
 
 <script>
-  /* JIKA SUDAH LOGIN, LANGSUNG KE LEARNING */
-  if (localStorage.getItem("isLoggedIn") === "true") {
-    window.location.href = "/Learning/learning.html";
-  }
-
-  /* LOGIN DUMMY */
   document.getElementById("loginForm").addEventListener("submit", function(e){
     e.preventDefault();
 
     localStorage.setItem("isLoggedIn", "true");
 
-    window.location.href = "/Learning/learning.html";
+    // Jika login setelah beli modul
+    const pending = localStorage.getItem("pendingModule");
+    if (pending) {
+      let myModules = JSON.parse(localStorage.getItem("myModules")) || [];
+      if (!myModules.includes(pending)) {
+        myModules.push(pending);
+        localStorage.setItem("myModules", JSON.stringify(myModules));
+      }
+      localStorage.removeItem("pendingModule");
+    }
+
+    window.location.href = "/User/index.html";
   });
 </script>
 

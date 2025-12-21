@@ -751,3 +751,23 @@ footer{
     opacity:0;
   }
 }
+.login-btn{
+  padding:10px 22px;
+  border-radius:999px;
+  background:linear-gradient(90deg,#6366f1,#22d3ee);
+  color:#020617;
+  font-weight:600;
+  box-shadow:
+    0 0 18px rgba(99,102,241,.6),
+    0 0 36px rgba(34,211,238,.4);
+  transition:.3s ease;
+}
+
+.login-btn:hover{
+  transform:scale(1.08);
+}
+.logout-btn{
+  background:#ef4444;
+  color:white;
+  box-shadow:0 0 18px rgba(239,68,68,.6);
+}

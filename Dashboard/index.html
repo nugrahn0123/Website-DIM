@@ -25,6 +25,8 @@
     <a href="#instructor">Instruktur</a>
     <a href="#testimonial">Testimoni</a>
     <a href="#contact">Kontak</a>
+    <a href="#" id="authBtn" class="login-btn">Login</a>
+
   </nav>
 </header>
 
@@ -114,8 +116,9 @@
         <li>✔ Sertifikat modul</li>
         <li>✔ Akses selamanya</li>
       </ul>
-
-      <a href="/Purchase/purchase.html" class="module-btn">Akses Modul</a>
+      <a href="#" class="module-btn" onclick="handlePurchase('dasar')">
+        Akses Modul
+      </a>
     </div>
 
       <div class="module">
@@ -131,8 +134,9 @@
           <li>✔ Sertifikat</li>
           <li>✔ Akses selamanya</li>
         </ul>
-
-        <a href="/Purchase/purchase.html" class="module-btn">Akses Modul</a>
+      <a href="#" class="module-btn" onclick="handlePurchase('web')">
+        Akses Modul
+      </a>
       </div>
 
       <div class="module">
@@ -148,8 +152,9 @@
           <li>✔ Sertifikat</li>
           <li>✔ Akses selamanya</li>
         </ul>
-
-        <a href="/Purchase/purchase.html" class="module-btn">Akses Modul</a>
+      <a href="#" class="module-btn" onclick="handlePurchase('database')">
+        Akses Modul
+      </a>
       </div>
 
   </div>
@@ -358,6 +363,104 @@
 
     particlesContainer.appendChild(p);
   }
+</script>
+<script>
+  function handleModule(moduleId) {
+    // 1. Kalau BELUM login → simpan niat beli, lalu ke login
+    if (localStorage.getItem("isLoggedIn") !== "true") {
+      localStorage.setItem("pendingModule", moduleId);
+      window.location.href = "/Auth/index.html";
+      return;
+    }
+
+    // 2. Kalau SUDAH login → langsung beli
+    addModuleToUser(moduleId);
+    window.location.href = "/User/index.html";
+  }
+
+  function addModuleToUser(moduleId) {
+    let myModules = JSON.parse(localStorage.getItem("myModules")) || [];
+
+    if (!myModules.includes(moduleId)) {
+      myModules.push(moduleId);
+      localStorage.setItem("myModules", JSON.stringify(myModules));
+    }
+  }
+</script>
+<script>
+  const loginBtn = document.getElementById("loginBtn");
+
+  if (loginBtn) {
+    loginBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      // JIKA SUDAH LOGIN → LANGSUNG KE LEARNING
+      if (localStorage.getItem("isLoggedIn") === "true") {
+        window.location.href = "/Learning/learning.html";
+      } 
+      // JIKA BELUM LOGIN → KE LOGIN PAGE
+      else {
+        window.location.href = "/Auth/index.html";
+      }
+    });
+  }
+</script>
+<script>
+  function handlePurchase(moduleId) {
+
+    // JIKA BELUM LOGIN → KE HALAMAN PURCHASE
+    if (localStorage.getItem("isLoggedIn") !== "true") {
+      localStorage.setItem("pendingModule", moduleId);
+      window.location.href = "/Purchase/purchase.html";
+      return;
+    }
+
+    // JIKA SUDAH LOGIN → SIMPAN MODUL & KE USER PAGE
+    let myModules = JSON.parse(localStorage.getItem("myModules")) || [];
+
+    if (!myModules.includes(moduleId)) {
+      myModules.push(moduleId);
+      localStorage.setItem("myModules", JSON.stringify(myModules));
+    }
+
+    window.location.href = "/User/index.html";
+  }
+</script>
+<script>
+  const authBtn = document.getElementById("authBtn");
+
+  function updateAuthButton() {
+    const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+
+    if (isLoggedIn) {
+      authBtn.textContent = "Logout";
+      authBtn.classList.remove("login-btn");
+      authBtn.classList.add("logout-btn");
+    } else {
+      authBtn.textContent = "Login";
+      authBtn.classList.remove("logout-btn");
+      authBtn.classList.add("login-btn");
+    }
+  }
+
+  // SET STATE SAAT LOAD
+  updateAuthButton();
+
+  // KLIK TOMBOL
+  authBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+
+    if (isLoggedIn) {
+      // LOGOUT
+      localStorage.removeItem("isLoggedIn");
+      window.location.reload();
+    } else {
+      // LOGIN
+      window.location.href = "/Auth/index.html";
+    }
+  });
 </script>
 </body>
 </html>
