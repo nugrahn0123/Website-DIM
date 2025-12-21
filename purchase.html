@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Pembelian Modul | Digital Informatics Mastery</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="purchase.css">
+</head>
+<body>
+
+<header class="header">
+  <h2>Digital Informatics Mastery</h2>
+  <span>Halaman Pembelian Modul</span>
+</header>
+
+<main class="container">
+
+  <!-- ================= PILIH PRODUK ================= -->
+ <section class="card">
+  <h3>Pilih Modul Pembelajaran</h3>
+
+  <div class="product-grid">
+
+    <label class="product-card">
+      <input type="radio" name="product" value="Dasar Pemrograman|99000">
+      <div class="product-inner">
+        <h4>Dasar Pemrograman</h4>
+        <p>Logika, algoritma, dan dasar coding</p>
+        <span class="price">Rp 99.000</span>
+      </div>
+    </label>
+
+    <label class="product-card">
+      <input type="radio" name="product" value="Web Development Dasar|149000">
+      <div class="product-inner">
+        <h4>Web Development Dasar</h4>
+        <p>HTML, CSS, JavaScript & project</p>
+        <span class="price">Rp 149.000</span>
+      </div>
+    </label>
+
+    <label class="product-card">
+      <input type="radio" name="product" value="Database & SQL|139000">
+      <div class="product-inner">
+        <h4>Database & SQL</h4>
+        <p>Database relasional & query SQL</p>
+        <span class="price">Rp 139.000</span>
+      </div>
+    </label>
+
+  </div>
+</section>
+<section class="card">
+  <h3>Data Pembeli</h3>
+
+  <div class="form-group">
+    <input type="text" id="nama" placeholder="Nama Lengkap" required>
+    <input type="email" id="email" placeholder="Email Aktif" required>
+    <input type="text" id="whatsapp" placeholder="No WhatsApp (08xxx)" required>
+  </div>
+
+  <p class="order-id">
+    Nomor Pesanan: <strong id="orderId"></strong>
+  </p>
+</section>
+
+  <!-- ================= METODE PEMBAYARAN ================= -->
+  <section class="card">
+    <h3>Metode Pembayaran</h3>
+
+    <div class="payment-methods">
+      <button onclick="showPayment('qris')">QRIS</button>
+      <button onclick="showPayment('ewallet')">E-Wallet</button>
+      <button onclick="showPayment('bank')">Transfer Bank</button>
+    </div>
+
+    <!-- QRIS -->
+    <div id="qris" class="payment-box">
+      <h4>QRIS</h4>
+      <p>Scan QR di bawah ini:</p>
+      <img src="img/qris.jpeg" alt="QRIS" class="qris-img">
+    </div>
+
+    <!-- EWALLET -->
+    <div id="ewallet" class="payment-box">
+      <h4>E-Wallet</h4>
+      <ul>
+        <li>📱 DANA : <strong>0812-xxxx-xxxx</strong></li>
+        <li>📱 OVO : <strong>0812-xxxx-xxxx</strong></li>
+        <li>📱 GoPay : <strong>0812-xxxx-xxxx</strong></li>
+      </ul>
+    </div>
+
+    <!-- BANK -->
+    <div id="bank" class="payment-box">
+      <h4>Transfer Bank</h4>
+      <ul>
+        <li>🏦 BCA : <strong>1234567890</strong> (a.n Digital Informatics)</li>
+        <li>🏦 BRI : <strong>0987654321</strong> (a.n Digital Informatics)</li>
+        <li>🏦 Mandiri : <strong>1122334455</strong> (a.n Digital Informatics)</li>
+      </ul>
+    </div>
+      <div class="upload-box">
+    <label>Upload Bukti Pembayaran</label>
+    <input type="file" id="bukti" accept="image/*" required>
+  </div>
+
+  </section>
+  
+
+  <!-- ================= KONFIRMASI ================= -->
+<section class="card confirm">
+<div class="confirm-actions">
+  <button class="confirm-btn" onclick="confirmPayment()">
+    Konfirmasi via WhatsApp
+  </button>
+
+  <a href="index.html" class="cancel-btn">
+    Batal & Kembali
+  </a>
+</div>
+
+</section>
+
+</main>
+
+<footer>
+  © 2025 Digital Informatics Mastery
+</footer>
+
+<script>
+  // ================= ORDER ID =================
+const orderId = "DIM-" + new Date().toISOString().replace(/[-:.TZ]/g,'');
+  document.getElementById("orderId").innerText = orderId;
+
+  function showPayment(id){
+    document.querySelectorAll('.payment-box').forEach(el=>{
+      el.style.display='none';
+    });
+    document.getElementById(id).style.display='block';
+  }
+
+  function confirmPayment(){
+  const product = document.querySelector('input[name="product"]:checked');
+  const nama = document.getElementById("nama").value;
+  const email = document.getElementById("email").value;
+  const wa = document.getElementById("whatsapp").value;
+  const bukti = document.getElementById("bukti").files.length;
+
+  if(!product || !nama || !email || !wa){
+    alert("Lengkapi data dan pilih modul terlebih dahulu");
+    return;
+  }
+
+  if(bukti === 0){
+    alert("Silakan upload bukti pembayaran terlebih dahulu");
+    return;
+  }
+
+  const [name, price] = product.value.split("|");
+
+  const message =
+    "Halo Admin Digital Informatics Mastery\n\n" +
+    "Saya ingin konfirmasi pembayaran dengan detail:\n\n" +
+    "Nama    : " + nama + "\n" +
+    "Email   : " + email + "\n" +
+    "WhatsApp: " + wa + "\n" +
+    "Order ID: " + orderId + "\n\n" +
+    "Produk  : " + name + "\n" +
+    "Harga   : Rp " + Number(price).toLocaleString("id-ID") + "\n\n" +
+    "Bukti pembayaran sudah saya upload.\n" +
+    "Terima kasih.";
+
+  const waUrl =
+    "https://wa.me/6281312194625?text=" + encodeURIComponent(message);
+
+  window.open(waUrl, "_blank");
+
+  }
+</script>
+</body>
+</html>
