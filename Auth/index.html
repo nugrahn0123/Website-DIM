@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Login | Digital Informatics Mastery</title>
+
+  <!-- CSS GLOBAL -->
+  <link rel="stylesheet" href="/Dashboard/style.css">
+
+  <!-- CSS LOGIN -->
+  <link rel="stylesheet" href="/Auth/login.css">
+</head>
+<body>
+
+<div id="particles"></div>
+
+<div class="login-container">
+
+  <div class="login-header">
+    <div class="logo-mark">DIM</div>
+    <h2>Masuk ke Learning</h2>
+    <p>Digital Informatics Mastery</p>
+  </div>
+
+  <form id="loginForm" class="login-form">
+    <input type="email" placeholder="Email" required>
+    <input type="password" placeholder="Password" required>
+    <button type="submit">Login</button>
+  </form>
+
+</div>
+
+<script>
+  /* JIKA SUDAH LOGIN, LANGSUNG KE LEARNING */
+  if (localStorage.getItem("isLoggedIn") === "true") {
+    window.location.href = "/Learning/learning.html";
+  }
+
+  /* LOGIN DUMMY */
+  document.getElementById("loginForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    localStorage.setItem("isLoggedIn", "true");
+
+    window.location.href = "/Learning/learning.html";
+  });
+</script>
+
+</body>
+</html>

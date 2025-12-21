@@ -82,6 +82,11 @@
   © 2025 Digital Informatics Mastery
 </footer>
 <script>
+  if (localStorage.getItem("isLoggedIn") !== "true") {
+    window.location.href = "/Auth/index.html";
+  }
+</script>
+<script>
   const lessons = [
     { title: "Pengenalan Algoritma", videoId: "8mAITcNt710" },
     { title: "Variabel & Tipe Data", videoId: "8mAITcNt710" },
