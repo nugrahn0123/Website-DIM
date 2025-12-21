@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard Belajar | Digital Informatics Mastery</title>
+<link rel="stylesheet" href="/Dashboard/style.css">
+<link rel="stylesheet" href="/Learning/learning.css">
+
+</head>
+<body>
+
+<div id="particles"></div>
+
+<header>
+  <div class="brand">
+    <div class="logo-mark">DIM</div>
+    <div class="logo-text">
+      <h2>Digital Informatics Mastery</h2>
+      <span>Learning Dashboard</span>
+    </div>
+  </div>
+
+<nav>
+  <a href="#">Dashboard</a>
+  <a href="#">Profil</a>
+  <a href="#" id="logoutBtn">Logout</a>
+</nav>
+</header>
+
+<section class="learn-wrapper">
+
+  <!-- SIDEBAR -->
+  <aside class="learn-sidebar reveal">
+    <h3>Modul Dasar Pemrograman</h3>
+
+    <ul class="lesson-list">
+      <li class="active">▶ Pengenalan Algoritma</li>
+      <li>Variabel & Tipe Data</li>
+      <li>Percabangan</li>
+      <li>Perulangan</li>
+    </ul>
+  </aside>
+
+  <!-- CONTENT -->
+  <main class="learn-content reveal">
+    <h1>Pengenalan Algoritma</h1>
+    <!-- PROGRESS -->
+    <div class="progress-wrapper">
+      <span class="progress-label">Progress Belajar</span>
+      <span class="progress-percent" id="progressPercent">25%</span>
+    </div>
+
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <!-- VIDEO YOUTUBE -->
+    <div class="video-wrapper">
+    <iframe
+      src="https://www.youtube.com/embed/8mAITcNt710"
+      title="Sample Video"
+      frameborder="0"
+      allowfullscreen>
+    </iframe>
+    </div>
+
+    <p class="hero-desc secondary">
+      Pada materi ini kamu akan memahami konsep dasar algoritma,
+      cara berpikir logis, dan mengapa algoritma sangat penting
+      dalam dunia pemrograman.
+    </p>
+
+    <div class="video-nav">
+      <button disabled>⬅ Sebelumnya</button>
+      <button>Selanjutnya ➜</button>
+    </div>
+  </main>
+
+</section>
+
+<footer>
+  © 2025 Digital Informatics Mastery
+</footer>
+<script>
+  const lessons = [
+    { title: "Pengenalan Algoritma", videoId: "8mAITcNt710" },
+    { title: "Variabel & Tipe Data", videoId: "8mAITcNt710" },
+    { title: "Percabangan", videoId: "8mAITcNt710" },
+    { title: "Perulangan", videoId: "8mAITcNt710" }
+  ];
+
+  let currentLesson = 0;
+</script>
+<script>
+  const progressFill = document.getElementById("progressFill");
+  const progressPercent = document.getElementById("progressPercent");
+
+  function updateProgress(){
+    const progress = ((currentLesson + 1) / lessons.length) * 100;
+    progressFill.style.width = progress + "%";
+    progressPercent.textContent = Math.round(progress) + "%";
+  }
+
+  // Panggil saat halaman pertama kali dibuka
+  updateProgress();
+</script>
+<script>
+  const lessonItems = document.querySelectorAll(".lesson-list li");
+
+  lessonItems.forEach((item, index) => {
+    item.addEventListener("click", () => {
+      currentLesson = index;
+
+      // highlight active
+      lessonItems.forEach(li => li.classList.remove("active"));
+      item.classList.add("active");
+
+      // update progress
+      updateProgress();
+    });
+  });
+</script>
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('active');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  reveals.forEach(el => observer.observe(el));
+</script>
+<script>
+  const logoutBtn = document.getElementById("logoutBtn");
+
+  if (logoutBtn) {
+    logoutBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      // ===== CLEAR SESSION (SAMPLE) =====
+      localStorage.clear();
+      sessionStorage.clear();
+
+      // ===== REDIRECT =====
+      window.location.href = "/Dashboard/index.html";
+    });
+  }
+</script>
+</body>
+</html>
