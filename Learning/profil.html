@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Akun Saya | Digital Informatics Mastery</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../Dashboard/style.css">
+</head>
+<body>
+
+<!-- PROTEKSI LOGIN -->
+<script>
+  if (localStorage.getItem("isLoggedIn") !== "true") {
+    window.location.href = "/Auth/index.html";
+  }
+</script>
+
+<header style="display:flex;justify-content:space-between;align-items:center">
+  <h2>Akun Saya</h2>
+  <div>
+    <a href="../Dashboard/index.html" class="module-btn" style="margin-right:12px">
+      Beranda
+    </a>
+    <a href="#" id="logoutBtn" class="module-btn">
+      Logout
+    </a>
+  </div>
+</header>
+
+<section class="container">
+
+  <!-- ================= PROFIL USER ================= -->
+ <div class="profile-card">
+  <div class="profile-header">
+    <div class="avatar" id="avatar">A</div>
+    <div>
+      <h3>Informasi Akun</h3>
+      <p class="profile-sub">Data akun yang digunakan untuk pembelian & akses learning</p>
+    </div>
+  </div>
+
+  <div class="profile-form">
+    <div class="field">
+      <label>Nama Lengkap</label>
+      <input type="text" id="profileName">
+    </div>
+
+    <div class="field">
+      <label>Email</label>
+      <input type="email" id="profileEmail" disabled>
+    </div>
+
+    <div class="field">
+      <label>No WhatsApp</label>
+      <input type="text" id="profileWhatsapp">
+    </div>
+  </div>
+
+  <button class="save-btn" onclick="saveProfile()">
+    Simpan Profil
+  </button>
+</div>
+
+<script>
+  // AVATAR INISIAL
+  const name = localStorage.getItem("userName") || "U";
+  document.getElementById("avatar").textContent = name.charAt(0).toUpperCase();
+</script>
+
+  <!-- ================= CHAPTER DIMILIKI ================= -->
+  <div class="module">
+    <h3>Chapter yang Dimiliki</h3>
+    <div id="myChapters" class="modules" style="margin-top:12px"></div>
+  </div>
+
+</section>
+
+<footer style="text-align:center;margin-top:40px">
+  © 2025 Digital Informatics Mastery
+</footer>
+
+<script>
+/* ================= LOAD DATA PROFIL ================= */
+document.getElementById("profileName").value =
+  localStorage.getItem("userName") || "";
+
+document.getElementById("profileEmail").value =
+  localStorage.getItem("userEmail") || "";
+
+document.getElementById("profileWhatsapp").value =
+  localStorage.getItem("userWhatsapp") || "";
+
+/* ================= SIMPAN PROFIL ================= */
+function saveProfile(){
+  localStorage.setItem("userName", profileName.value);
+  localStorage.setItem("userWhatsapp", profileWhatsapp.value);
+  alert("Profil berhasil diperbarui");
+}
+
+/* ================= CHAPTER ================= */
+const container = document.getElementById("myChapters");
+let chapters = JSON.parse(localStorage.getItem("myChapters")) || [];
+
+const titles = {
+  if: "IF (Pengkondisian Dasar)",
+  ifelse: "IF – ELSE",
+  loop: "Perulangan FOR & WHILE",
+  array: "Array 1 Dimensi",
+  bubble: "Bubble Sort",
+  insertion: "Insertion Sort",
+  sim_if: "Simulasi IF",
+  sim_ifelse: "Simulasi IF – ELSE",
+  sim_loop: "Simulasi Perulangan",
+  sim_array: "Simulasi Array",
+  sim_bubble: "Simulasi Bubble Sort",
+  sim_insertion: "Simulasi Insertion Sort"
+};
+
+if (chapters.length === 0) {
+  container.innerHTML = `
+    <p class="hero-desc secondary">
+      Kamu belum membeli chapter apa pun.
+    </p>
+    <a href="../Dashboard/index.html" class="module-btn">
+      Kembali ke Beranda
+    </a>
+  `;
+} else {
+  chapters.forEach(ch => {
+    container.innerHTML += `
+      <div class="module">
+        <h3>${titles[ch] || ch}</h3>
+        <div style="display:flex;gap:12px;margin-top:16px">
+          <a href="../Learning/${ch}.html" class="module-btn">
+            Masuk Learning
+          </a>
+          <button class="module-btn"
+            style="background:#ef4444;color:white"
+            onclick="removeChapter('${ch}')">
+            Hapus
+          </button>
+        </div>
+      </div>
+    `;
+  });
+}
+
+/* ================= HAPUS CHAPTER ================= */
+function removeChapter(id){
+  if (!confirm("Yakin ingin menghapus chapter ini?")) return;
+  chapters = chapters.filter(c => c !== id);
+  localStorage.setItem("myChapters", JSON.stringify(chapters));
+  location.reload();
+}
+
+/* ================= LOGOUT ================= */
+document.getElementById("logoutBtn").addEventListener("click", () => {
+  localStorage.removeItem("isLoggedIn");
+  window.location.href = "../Dashboard/index.html";
+});
+</script>
+
+</body>
+</html>

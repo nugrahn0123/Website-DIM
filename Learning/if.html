@@ -30,30 +30,30 @@
 <section class="learn-wrapper">
 
   <!-- SIDEBAR -->
-  <aside class="learn-sidebar reveal">
-    <h3>Modul Dasar Pemrograman</h3>
+<aside class="learn-sidebar reveal">
+  <h3>Partner Kami</h3>
 
-    <ul class="lesson-list">
-      <li class="active">▶ Pengenalan Algoritma</li>
-      <li>Variabel & Tipe Data</li>
-      <li>Percabangan</li>
-      <li>Perulangan</li>
-    </ul>
-  </aside>
+  <div class="ad-carousel">
+    <div class="ad-track" id="adTrack">
 
+      <a href="#" class="ad-item">
+        <img src="../img/nur-qamariah.png" alt="Produk 1">
+      </a>
+
+      <a href="#" class="ad-item">
+        <img src="../img/nadilla.png" alt="Produk 2">
+      </a>
+
+      <a href="#" class="ad-item">
+        <img src="../img/nadilla.png" alt="Produk 3">
+      </a>
+
+    </div>
+  </div>
+</aside>
   <!-- CONTENT -->
   <main class="learn-content reveal">
-    <h1>Pengenalan Algoritma</h1>
-    <!-- PROGRESS -->
-    <div class="progress-wrapper">
-      <span class="progress-label">Progress Belajar</span>
-      <span class="progress-percent" id="progressPercent">25%</span>
-    </div>
-
-    <div class="progress-bar">
-      <div class="progress-fill" id="progressFill"></div>
-    </div>
-
+    <h1>IF (Pengkondisian Dasar)</h1>
     <!-- VIDEO YOUTUBE -->
     <div class="video-wrapper">
     <iframe
@@ -95,19 +95,6 @@
   ];
 
   let currentLesson = 0;
-</script>
-<script>
-  const progressFill = document.getElementById("progressFill");
-  const progressPercent = document.getElementById("progressPercent");
-
-  function updateProgress(){
-    const progress = ((currentLesson + 1) / lessons.length) * 100;
-    progressFill.style.width = progress + "%";
-    progressPercent.textContent = Math.round(progress) + "%";
-  }
-
-  // Panggil saat halaman pertama kali dibuka
-  updateProgress();
 </script>
 <script>
   const lessonItems = document.querySelectorAll(".lesson-list li");
@@ -153,5 +140,22 @@
     });
   }
 </script>
+
+<script>
+  const adTrack = document.getElementById("adTrack");
+  const ads = document.querySelectorAll(".ad-item");
+  let currentIndex = 0;
+
+  setInterval(() => {
+    currentIndex++;
+
+    if (currentIndex >= ads.length) {
+      currentIndex = 0;
+    }
+
+    adTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }, 5000); // ganti setiap 5 detik
+</script>
+
 </body>
 </html>

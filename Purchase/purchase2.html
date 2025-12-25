@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Pembelian Chapter | Digital Informatics Mastery</title>
+  <title>Pembelian Chapter | Simulasi Algoritma</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -12,67 +12,67 @@
 
 <header class="header">
   <h2>Digital Informatics Mastery</h2>
-  <span>Halaman Pembelian Chapter</span>
+  <span>Pembelian Chapter – Simulasi Algoritma</span>
 </header>
 
 <main class="container">
 
 <!-- ================= PILIH CHAPTER ================= -->
 <section class="card">
-  <h3>Pilih Chapter (Rp 9.000)</h3>
+  <h3>Chapter Simulasi Algoritma (Rp 9.000)</h3>
 
   <div class="product-grid">
 
     <label class="product-card">
-      <input type="radio" name="product" value="Struktur Data - IF|9000" required>
+      <input type="radio" name="product" value="Simulasi Algoritma - IF|9000" required>
       <div class="product-inner">
-        <h4>IF (Pengkondisian Dasar)</h4>
-        <p>Logika keputusan satu kondisi</p>
+        <h4>Simulasi IF</h4>
+        <p>Visualisasi pengkondisian satu kondisi</p>
         <span class="price">Rp 9.000</span>
       </div>
     </label>
 
     <label class="product-card">
-      <input type="radio" name="product" value="Struktur Data - IF ELSE|9000">
+      <input type="radio" name="product" value="Simulasi Algoritma - IF ELSE|9000">
       <div class="product-inner">
-        <h4>IF – ELSE</h4>
-        <p>Percabangan dua kondisi</p>
+        <h4>Simulasi IF – ELSE</h4>
+        <p>Visualisasi percabangan dua kondisi</p>
         <span class="price">Rp 9.000</span>
       </div>
     </label>
 
     <label class="product-card">
-      <input type="radio" name="product" value="Struktur Data - Perulangan|9000">
+      <input type="radio" name="product" value="Simulasi Algoritma - Perulangan|9000">
       <div class="product-inner">
-        <h4>Perulangan FOR & WHILE</h4>
-        <p>Pengulangan proses dalam algoritma</p>
+        <h4>Simulasi Perulangan</h4>
+        <p>Simulasi FOR & WHILE langkah demi langkah</p>
         <span class="price">Rp 9.000</span>
       </div>
     </label>
 
     <label class="product-card">
-      <input type="radio" name="product" value="Struktur Data - Array|9000">
+      <input type="radio" name="product" value="Simulasi Algoritma - Array|9000">
       <div class="product-inner">
-        <h4>Array 1 Dimensi</h4>
-        <p>Penyimpanan dan pengolahan data</p>
+        <h4>Simulasi Array</h4>
+        <p>Visualisasi penyimpanan dan akses data</p>
         <span class="price">Rp 9.000</span>
       </div>
     </label>
 
     <label class="product-card">
-      <input type="radio" name="product" value="Struktur Data - Bubble Sort|9000">
+      <input type="radio" name="product" value="Simulasi Algoritma - Bubble Sort|9000">
       <div class="product-inner">
-        <h4>Bubble Sort</h4>
-        <p>Algoritma pengurutan berbasis pertukaran</p>
+        <h4>Simulasi Bubble Sort</h4>
+        <p>Animasi pertukaran elemen sorting</p>
         <span class="price">Rp 9.000</span>
       </div>
     </label>
 
     <label class="product-card">
-      <input type="radio" name="product" value="Struktur Data - Insertion Sort|9000">
+      <input type="radio" name="product" value="Simulasi Algoritma - Insertion Sort|9000">
       <div class="product-inner">
-        <h4>Insertion Sort</h4>
-        <p>Algoritma pengurutan berbasis penyisipan</p>
+        <h4>Simulasi Insertion Sort</h4>
+        <p>Animasi penyisipan elemen terurut</p>
         <span class="price">Rp 9.000</span>
       </div>
     </label>
@@ -107,12 +107,10 @@
 
   <div id="qris" class="payment-box">
     <h4>QRIS</h4>
-    <p>Scan QR di bawah ini:</p>
-    <img src="../img/qris.jpeg" alt="QRIS" class="qris-img">
+    <img src="../img/qris.jpeg" class="qris-img">
   </div>
 
   <div id="ewallet" class="payment-box">
-    <h4>E-Wallet</h4>
     <ul>
       <li>DANA : <strong>0812-xxxx-xxxx</strong></li>
       <li>OVO : <strong>0812-xxxx-xxxx</strong></li>
@@ -121,7 +119,6 @@
   </div>
 
   <div id="bank" class="payment-box">
-    <h4>Transfer Bank</h4>
     <ul>
       <li>BCA : <strong>1234567890</strong></li>
       <li>BRI : <strong>0987654321</strong></li>
@@ -140,24 +137,19 @@
   <button class="confirm-btn" onclick="confirmPayment()">
     Konfirmasi via WhatsApp
   </button>
-
-  <a href="../Dashboard/index.html" class="cancel-btn">
-    Batal & Kembali
-  </a>
+  <a href="../Dashboard/index.html" class="cancel-btn">Batal & Kembali</a>
 </section>
 
 </main>
 
-<footer>
-  © 2025 Digital Informatics Mastery
-</footer>
+<footer>© 2025 Digital Informatics Mastery</footer>
 
 <script>
 /* ================= ORDER ID ================= */
 const orderId = "DIM-" + new Date().toISOString().replace(/[-:.TZ]/g,'');
 document.getElementById("orderId").innerText = orderId;
 
-/* ================= METODE PEMBAYARAN ================= */
+/* ================= PAYMENT VIEW ================= */
 function showPayment(id){
   document.querySelectorAll('.payment-box').forEach(el=>{
     el.style.display = 'none';
@@ -173,53 +165,55 @@ function confirmPayment(){
   const wa = document.getElementById("whatsapp").value;
   const bukti = document.getElementById("bukti").files.length;
 
-  if(!product || !nama || !email || !wa){
-    alert("Lengkapi data dan pilih chapter terlebih dahulu");
+  if(!product || !nama || !email || !wa || bukti === 0){
+    alert("Lengkapi data dan upload bukti pembayaran");
     return;
   }
 
-  if(bukti === 0){
-    alert("Silakan upload bukti pembayaran");
-    return;
-  }
+  // SIMPAN DATA USER (UNTUK PROFIL)
+  localStorage.setItem("userName", nama);
+  localStorage.setItem("userEmail", email);
+  localStorage.setItem("userWhatsapp", wa);
 
   const [name, price] = product.value.split("|");
 
   const chapterMap = {
-    "Struktur Data - IF": "if",
-    "Struktur Data - IF ELSE": "ifelse",
-    "Struktur Data - Perulangan": "loop",
-    "Struktur Data - Array": "array",
-    "Struktur Data - Bubble Sort": "bubble",
-    "Struktur Data - Insertion Sort": "insertion"
+    "Simulasi Algoritma - IF": "sim_if",
+    "Simulasi Algoritma - IF ELSE": "sim_ifelse",
+    "Simulasi Algoritma - Perulangan": "sim_loop",
+    "Simulasi Algoritma - Array": "sim_array",
+    "Simulasi Algoritma - Bubble Sort": "sim_bubble",
+    "Simulasi Algoritma - Insertion Sort": "sim_insertion"
   };
 
-  const chapterId = chapterMap[name];
   let chapters = JSON.parse(localStorage.getItem("myChapters")) || [];
+  const chapterId = chapterMap[name];
 
   if(chapterId && !chapters.includes(chapterId)){
     chapters.push(chapterId);
+    localStorage.setItem("myChapters", JSON.stringify(chapters));
   }
 
-  localStorage.setItem("myChapters", JSON.stringify(chapters));
-
   const message =
-    "Halo Admin Digital Informatics Mastery\n\n" +
-    "Nama    : " + nama + "\n" +
-    "Email   : " + email + "\n" +
-    "WhatsApp: " + wa + "\n" +
-    "Order ID: " + orderId + "\n\n" +
-    "Chapter : " + name + "\n" +
-    "Harga   : Rp " + Number(price).toLocaleString("id-ID") + "\n\n" +
-    "Bukti pembayaran sudah saya upload.\n" +
-    "Terima kasih.";
+`Halo Admin Digital Informatics Mastery
+
+Nama    : ${nama}
+Email   : ${email}
+WhatsApp: ${wa}
+Order ID: ${orderId}
+
+Chapter : ${name}
+Harga   : Rp ${Number(price).toLocaleString("id-ID")}
+
+Bukti pembayaran sudah saya upload.
+Terima kasih.`;
 
   window.open(
     "https://wa.me/6281312194625?text=" + encodeURIComponent(message),
     "_blank"
   );
 
-  alert("Chapter berhasil ditambahkan ke Dashboard!");
+  alert("Chapter Simulasi berhasil ditambahkan ke akun kamu!");
 }
 </script>
 

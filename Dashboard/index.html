@@ -22,14 +22,21 @@
   <div class="header-right">
     <!-- LOGIN TETAP -->
 <div class="header-right">
+  <!-- TOMBOL PROFIL (HIDDEN DEFAULT) -->
+  <a href="../Learning/profil.html" id="profileBtn" class="login-btn" style="display:none;margin-right:10px">
+    Profil
+  </a>
+
+  <!-- LOGIN / LOGOUT -->
   <a href="#" id="authBtn" class="login-btn">Login</a>
-    <!-- HAMBURGER -->
-    <div class="menu-toggle" id="menuToggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+
+  <!-- HAMBURGER -->
+  <div class="menu-toggle" id="menuToggle">
+    <span></span>
+    <span></span>
+    <span></span>
   </div>
+</div>
 
   <!-- MENU DROPDOWN -->
   <nav class="nav-menu" id="navMenu">
@@ -112,62 +119,60 @@
     dan dirancang agar langsung bisa dipraktikkan.
   </p>
 
-  <div class="modules">
+<div class="modules">
 
-    <div class="module">
-      <h3>Dasar Pemrograman</h3>
-      <p class="price">Rp 99.000</p>
-      <p class="hero-desc secondary">
-        Modul ini menjadi fondasi utama sebelum masuk ke dunia coding.
-      </p>
-      <ul class="benefit">
-        <li>✔ Logika algoritma & flow berpikir</li>
-        <li>✔ Variabel, kondisi, perulangan</li>
-        <li>✔ Studi kasus sederhana</li>
-        <li>✔ Sertifikat modul</li>
-        <li>✔ Akses selamanya</li>
-      </ul>
-      <a href="#" class="module-btn" onclick="handlePurchase('dasar')">
-        Akses Modul
-      </a>
-    </div>
+  <!-- Modul 1: Struktur Data -->
+  <div class="module">
+    <h3>Struktur Data</h3>
+    <p class="price">Berisi 6 Video Pembelajaran</p>
+    <p class="hero-desc secondary">
+      Modul Struktur Data membahas konsep dasar pengolahan data dan logika algoritma
+      menggunakan bahasa pemrograman Java secara bertahap dan sistematis.
+    </p>
 
-      <div class="module">
-        <h3>Web Development Dasar</h3>
-        <p class="price">Rp 149.000</p>
-        <p class="hero-desc secondary">
-          Cocok untuk kamu yang ingin mulai membuat website dari nol.
-        </p>
-        <ul class="benefit">
-          <li>✔ HTML, CSS, JavaScript dasar</li>
-          <li>✔ Project website statis</li>
-          <li>✔ Struktur folder rapi</li>
-          <li>✔ Sertifikat</li>
-          <li>✔ Akses selamanya</li>
-        </ul>
-      <a href="#" class="module-btn" onclick="handlePurchase('web')">
-        Akses Modul
-      </a>
-      </div>
+    <ul class="benefit">
+      <li>✔ Konsep dasar struktur data & algoritma</li>
+      <li>✔ Pengkondisian: IF, IF–ELSE, dan ELSE IF</li>
+      <li>✔ Perulangan: FOR dan WHILE</li>
+      <li>✔ Array satu dimensi</li>
+      <li>✔ Algoritma Bubble Sort</li>
+      <li>✔ Algoritma Insertion Sort</li>
+      <li>✔ Studi kasus & latihan terstruktur</li>
+      <li>✔ Implementasi Java step-by-step</li>
+      <li>✔ Sertifikat modul</li>
+      <li>✔ Akses selamanya</li>
+    </ul>
 
-      <div class="module">
-        <h3>Database & SQL</h3>
-        <p class="price">Rp 139.000</p>
-        <p class="hero-desc secondary">
-          Memahami cara menyimpan, mengelola, dan mengambil data.
-        </p>
-        <ul class="benefit">
-          <li>✔ Konsep database relasional</li>
-          <li>✔ Query SQL dasar</li>
-          <li>✔ Studi kasus data nyata</li>
-          <li>✔ Sertifikat</li>
-          <li>✔ Akses selamanya</li>
-        </ul>
-      <a href="#" class="module-btn" onclick="handlePurchase('database')">
-        Akses Modul
-      </a>
-      </div>
+    <a href="#" class="module-btn" onclick="handlePurchase('struktur-data')">
+      Akses Modul
+    </a>
+  </div>
 
+  <!-- Modul 2: Simulasi Algoritma -->
+  <div class="module">
+    <h3>Simulasi Algoritma</h3>
+    <p class="price">Berisi 6 Video Pembelajaran</p>
+    <p class="hero-desc secondary">
+      Modul Simulasi Algoritma dirancang untuk membantu peserta memahami cara kerja
+      algoritma melalui simulasi dan visualisasi langkah demi langkah.
+    </p>
+
+    <ul class="benefit">
+      <li>✔ Konsep simulasi algoritma</li>
+      <li>✔ Visualisasi alur logika dan flow proses</li>
+      <li>✔ Simulasi pengkondisian IF dan IF–ELSE</li>
+      <li>✔ Simulasi perulangan FOR dan WHILE</li>
+      <li>✔ Simulasi algoritma Bubble Sort</li>
+      <li>✔ Simulasi algoritma Insertion Sort</li>
+      <li>✔ Analisis setiap langkah algoritma</li>
+      <li>✔ Studi kasus berbasis simulasi</li>
+      <li>✔ Sertifikat modul</li>
+      <li>✔ Akses selamanya</li>
+    </ul>
+
+    <a href="#" class="module-btn" onclick="handlePurchase('simulasi-algoritma')">
+      Akses Modul
+    </a>
   </div>
 </section>
 
@@ -417,28 +422,29 @@
   }
 </script>
 <script>
-  function handlePurchase(moduleId) {
+function handlePurchase(moduleId) {
 
-    // JIKA BELUM LOGIN → KE HALAMAN PURCHASE
-    if (localStorage.getItem("isLoggedIn") !== "true") {
-      localStorage.setItem("pendingModule", moduleId);
-      window.location.href = "../Purchase/purchase.html";
-      return;
-    }
+  // SIMPAN MODUL YANG DIPILIH
+  localStorage.setItem("selectedModule", moduleId);
 
-    // JIKA SUDAH LOGIN → SIMPAN MODUL & KE USER PAGE
-    let myModules = JSON.parse(localStorage.getItem("myModules")) || [];
-
-    if (!myModules.includes(moduleId)) {
-      myModules.push(moduleId);
-      localStorage.setItem("myModules", JSON.stringify(myModules));
-    }
-
-    window.location.href = "../User/index.html";
+  // JIKA BELUM LOGIN → LOGIN DULU
+  if (localStorage.getItem("isLoggedIn") !== "true") {
+    window.location.href = "../Auth/index.html";
+    return;
   }
+
+  // ARAHKAN KE HALAMAN PEMBELIAN SESUAI MODUL
+  if (moduleId === "simulasi-algoritma") {
+    window.location.href = "../Purchase/purchase2.html";
+  } else {
+    // default: struktur data
+    window.location.href = "../Purchase/purchase.html";
+  }
+}
 </script>
 <script>
   const authBtn = document.getElementById("authBtn");
+  const profileBtn = document.getElementById("profileBtn");
 
   function updateAuthButton() {
     const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
@@ -447,32 +453,35 @@
       authBtn.textContent = "Logout";
       authBtn.classList.remove("login-btn");
       authBtn.classList.add("logout-btn");
+
+      // TAMPILKAN PROFIL
+      profileBtn.style.display = "inline-block";
     } else {
       authBtn.textContent = "Login";
       authBtn.classList.remove("logout-btn");
       authBtn.classList.add("login-btn");
+
+      // SEMBUNYIKAN PROFIL
+      profileBtn.style.display = "none";
     }
   }
 
-  // SET STATE SAAT LOAD
   updateAuthButton();
 
-  // KLIK TOMBOL
   authBtn.addEventListener("click", function (e) {
     e.preventDefault();
 
     const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
 
     if (isLoggedIn) {
-      // LOGOUT
       localStorage.removeItem("isLoggedIn");
       window.location.reload();
     } else {
-      // LOGIN
       window.location.href = "../Auth/index.html";
     }
   });
 </script>
+
 <script>
   const menuToggle = document.getElementById("menuToggle");
   const navMenu = document.getElementById("navMenu");
