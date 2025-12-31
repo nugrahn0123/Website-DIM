@@ -177,45 +177,6 @@
     grid-template-columns:1fr;
   }
 }
-/* ================= PROGRESS BAR ================= */
-.progress-wrapper{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:12px;
-}
-
-.progress-label{
-  font-size:14px;
-  color:#94a3b8;
-}
-
-.progress-percent{
-  font-size:14px;
-  font-weight:600;
-  color:#67e8f9;
-}
-
-.progress-bar{
-  width:100%;
-  height:10px;
-  border-radius:999px;
-  background:rgba(255,255,255,.08);
-  overflow:hidden;
-  margin-bottom:24px;
-}
-
-.progress-fill{
-  height:100%;
-  width:0%;
-  background:linear-gradient(
-    90deg,
-    #6366f1,
-    #22d3ee
-  );
-  border-radius:999px;
-  transition:width .5s ease;
-}
 /* ===== SIDEBAR IKLAN SLIDE ===== */
 .ad-carousel {
   width: 100%;
