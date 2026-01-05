@@ -1,0 +1,50 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Kerangka Pikir">
+    <mxGraphModel dx="1000" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Identifikasi Masalah -->
+        <mxCell id="2" value="Identifikasi Permasalahan&#10;Pemula dalam Pemrograman Web" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="80" y="80" width="260" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- Penyusunan Modul -->
+        <mxCell id="3" value="Perancangan dan Penyusunan&#10;Modul Pembelajaran&#10;(HTML, CSS, JavaScript)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="80" y="200" width="260" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- Uji Coba -->
+        <mxCell id="4" value="Uji Coba Modul&#10;kepada Pengguna Pemula" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="80" y="340" width="260" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- Analisis -->
+        <mxCell id="5" value="Analisis Hasil Uji Coba&#10;Tingkat Pemahaman Pengguna" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="80" y="460" width="260" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- Kesimpulan -->
+        <mxCell id="6" value="Kesimpulan&#10;Efektivitas Modul Pembelajaran" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="80" y="580" width="260" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrows -->
+        <mxCell id="7" style="endArrow=block;html=1;" edge="1" parent="1" source="2" target="3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="8" style="endArrow=block;html=1;" edge="1" parent="1" source="3" target="4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="9" style="endArrow=block;html=1;" edge="1" parent="1" source="4" target="5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="10" style="endArrow=block;html=1;" edge="1" parent="1" source="5" target="6">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
