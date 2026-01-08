@@ -1,0 +1,69 @@
+<mxfile>
+  <diagram name="Backtracking Knapsack">
+    <mxGraphModel>
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Root -->
+        <mxCell id="R" value="Start (w=0,v=0)" style="ellipse" vertex="1" parent="1">
+          <mxGeometry x="400" y="20" width="140" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Level 1 -->
+        <mxCell id="N1X0" value="X1=0&#10;(w=0,v=0)" style="rounded=1" vertex="1" parent="1">
+          <mxGeometry x="200" y="120" width="150" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="N1X1" value="X1=1&#10;(w=4,v=90)" style="rounded=1" vertex="1" parent="1">
+          <mxGeometry x="600" y="120" width="150" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="E1X0" value="X1=0" edge="1" parent="1" source="R" target="N1X0">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="E1X1" value="X1=1" edge="1" parent="1" source="R" target="N1X1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Level 2 (optimal path) -->
+        <mxCell id="N2" value="X2=1&#10;(w=2,v=80)" style="rounded=1;fillColor=#d5f5e3" vertex="1" parent="1">
+          <mxGeometry x="200" y="230" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="E2" value="X2=1" edge="1" parent="1" source="N1X0" target="N2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Level 3 -->
+        <mxCell id="N3" value="X3=1&#10;(w=5,v=169)" style="rounded=1;fillColor=#d5f5e3" vertex="1" parent="1">
+          <mxGeometry x="200" y="340" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="E3" value="X3=1" edge="1" parent="1" source="N2" target="N3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Level 4 -->
+        <mxCell id="N4" value="X4=1&#10;(w=6,v=239)" style="rounded=1;fillColor=#d5f5e3" vertex="1" parent="1">
+          <mxGeometry x="200" y="450" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="E4" value="X4=1" edge="1" parent="1" source="N3" target="N4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Final optimal -->
+        <mxCell id="OPT" value="SOLUSI OPTIMAL&#10;w=14.5&#10;v=649" style="rounded=1;fillColor=#fadbd8;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="200" y="560" width="200" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="EOPT" value="X5..X15" edge="1" parent="1" source="N4" target="OPT">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

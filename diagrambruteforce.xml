@@ -1,0 +1,154 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Brute Force Knapsack 4 Level (FIX)">
+    <mxGraphModel dx="2400" dy="1600" grid="1" gridSize="10">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- ROOT -->
+        <mxCell id="R" value="START&#xa;W=0, P=0"
+          style="ellipse;html=1;aspect=fixed;fillColor=#ffffff;strokeColor=#000000;fontWeight=bold;"
+          vertex="1" parent="1">
+          <mxGeometry x="1150" y="20" width="90" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- LEVEL 1 : TENDA CAMPING -->
+        <mxCell id="L1_1" value="Tenda Camping&#xa;AMBIL&#xa;W=4, P=90"
+          style="rounded=1;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;"
+          vertex="1" parent="1">
+          <mxGeometry x="600" y="150" width="200" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="L1_0" value="Tenda Camping&#xa;LEWATI&#xa;W=0, P=0"
+          style="rounded=1;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;"
+          vertex="1" parent="1">
+          <mxGeometry x="1500" y="150" width="200" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell edge="1" parent="1" source="R" target="L1_1"
+          style="edgeStyle=orthogonalEdgeStyle;html=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell edge="1" parent="1" source="R" target="L1_0"
+          style="edgeStyle=orthogonalEdgeStyle;html=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- LEVEL 2 : SLEEPING BAG -->
+        <mxCell id="L2_11" value="Sleeping Bag&#xa;AMBIL&#xa;W=6, P=175"
+          style="rounded=1;html=1;fillColor=#dae8fc;"
+          vertex="1" parent="1">
+          <mxGeometry x="350" y="320" width="220" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="L2_10" value="Sleeping Bag&#xa;LEWATI&#xa;W=4, P=90"
+          style="rounded=1;html=1;fillColor=#dae8fc;"
+          vertex="1" parent="1">
+          <mxGeometry x="650" y="320" width="220" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="L2_01" value="Sleeping Bag&#xa;AMBIL&#xa;W=2, P=85"
+          style="rounded=1;html=1;fillColor=#dae8fc;"
+          vertex="1" parent="1">
+          <mxGeometry x="1350" y="320" width="220" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="L2_00" value="Sleeping Bag&#xa;LEWATI&#xa;W=0, P=0"
+          style="rounded=1;html=1;fillColor=#dae8fc;"
+          vertex="1" parent="1">
+          <mxGeometry x="1650" y="320" width="220" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell edge="1" parent="1" source="L1_1" target="L2_11"
+          style="edgeStyle=orthogonalEdgeStyle;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell edge="1" parent="1" source="L1_1" target="L2_10"
+          style="edgeStyle=orthogonalEdgeStyle;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell edge="1" parent="1" source="L1_0" target="L2_01"
+          style="edgeStyle=orthogonalEdgeStyle;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell edge="1" parent="1" source="L1_0" target="L2_00"
+          style="edgeStyle=orthogonalEdgeStyle;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- LEVEL 3 : PAKAIAN HANGAT -->
+        <mxCell id="L3_111" value="Pakaian Hangat&#xa;AMBIL&#xa;W=9, P=255"
+          style="rounded=1;html=1;fillColor=#dae8fc;"
+          vertex="1" parent="1">
+          <mxGeometry x="200" y="520" width="240" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="L3_110" value="Pakaian Hangat&#xa;LEWATI&#xa;W=6, P=175"
+          style="rounded=1;html=1;fillColor=#dae8fc;"
+          vertex="1" parent="1">
+          <mxGeometry x="480" y="520" width="240" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="L3_101" value="Pakaian Hangat&#xa;AMBIL&#xa;W=7, P=170"
+          style="rounded=1;html=1;fillColor=#dae8fc;"
+          vertex="1" parent="1">
+          <mxGeometry x="760" y="520" width="240" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="L3_100" value="Pakaian Hangat&#xa;LEWATI&#xa;W=4, P=90"
+          style="rounded=1;html=1;fillColor=#dae8fc;"
+          vertex="1" parent="1">
+          <mxGeometry x="1040" y="520" width="240" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell edge="1" parent="1" source="L2_11" target="L3_111"
+          style="edgeStyle=orthogonalEdgeStyle;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell edge="1" parent="1" source="L2_11" target="L3_110"
+          style="edgeStyle=orthogonalEdgeStyle;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell edge="1" parent="1" source="L2_10" target="L3_101"
+          style="edgeStyle=orthogonalEdgeStyle;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell edge="1" parent="1" source="L2_10" target="L3_100"
+          style="edgeStyle=orthogonalEdgeStyle;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- LEVEL 4 : OBAT PRIBADI (DAUN) -->
+        <mxCell id="L4_1111" value="Obat Pribadi&#xa;AMBIL&#xa;W=10, P=350"
+          style="rounded=1;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;"
+          vertex="1" parent="1">
+          <mxGeometry x="200" y="720" width="260" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="L4_1110" value="Obat Pribadi&#xa;LEWATI&#xa;W=9, P=255"
+          style="rounded=1;html=1;fillColor=#dae8fc;fontSize=11;"
+          vertex="1" parent="1">
+          <mxGeometry x="480" y="720" width="260" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell edge="1" parent="1" source="L3_111" target="L4_1111"
+          style="edgeStyle=orthogonalEdgeStyle;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell edge="1" parent="1" source="L3_111" target="L4_1110"
+          style="edgeStyle=orthogonalEdgeStyle;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- NOTE -->
+        <mxCell id="note" value="BRUTE FORCE&#xa;Semua node diekspansi&#xa;Tidak ada pruning"
+          style="shape=note;html=1;fillColor=#fff2cc;strokeColor=#d6b656;"
+          vertex="1" parent="1">
+          <mxGeometry x="50" y="40" width="360" height="120" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
